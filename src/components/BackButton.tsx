@@ -1,10 +1,12 @@
 import React from "react";
-import { MdArrowBackIos } from "react-icons/md";
+import { IoArrowBackOutline } from "react-icons/io5";
 
 function BackButton() {
   return (
-    <button>
-      <MdArrowBackIos />
+    <button className="bg-white p-2 w-fit h-fit rounded-full">
+      <a href="/">
+        <IoArrowBackOutline className="w-[32px] h-[32px]" />
+      </a>
     </button>
   );
 }
