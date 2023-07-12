@@ -7,12 +7,12 @@ function About() {
       <div className="w-full flex justify-center items-center pt-8">
         <BackButton />
       </div>
-      <h1 className="text-white-1 text-[36px] font-bold fixed left-8 top-8 z-30">
-        HR
+      <h1 className="text-white-1 text-[36px] font-lin font-bold fixed left-8 top-8 z-30">
+        MM
       </h1>
       <div className="p-8 border-solid border-2 border-white w-[50vw] h-[60vh] flex items-center justify-center absolute top-44 left-[9vw] opacity-100 z-10 backdrop-blur-[4px]">
         <p className="text-white text-[24px]">
-          I'm a Software Developer at Zoho Corporation. I adore designing
+          I'm a Software Developer at Vonnue Innovations. I adore designing
           user-friendly websites that are both simple and elegant. I consider
           myself to be a lifelong learner. I'm proficient in data structures and
           algorithms.
