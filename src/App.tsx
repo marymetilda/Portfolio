@@ -9,13 +9,6 @@ function App() {
     <div>
       {/* <BackButton /> */}
       <About />
-      <Particle
-        onHoverInteractivity={false}
-        shouldEnableLinks={false}
-        particleColor="#ffffff"
-        linkColor="#ffffff"
-        bgColor="#000000"
-      />
     </div>
   );
 }
