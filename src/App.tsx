@@ -4,13 +4,15 @@ import "./App.css";
 import About from "./pages/About";
 import Particle from "./components/Particle";
 import WhiteBgCard from "./components/WhiteBgCard";
+import Skills from "./pages/Skills";
 
 function App() {
   return (
     <div>
       {/* <BackButton /> */}
-      {/* <About /> */}
+      <About />
       {/* <WhiteBgCard /> */}
+      {/* <Skills /> */}
     </div>
   );
 }

@@ -11,9 +11,6 @@ function About() {
         <div className="absolute top-10 w-full flex items-center justify-center z-40 opacity-50">
           <BackButton />
         </div>
-        <h1 className="text-white-1 text-[36px] font-bold fixed left-8 top-10 z-30">
-          MM
-        </h1>
         <div className="p-8 border-solid border-2 border-white w-[50vw] h-fit flex items-center justify-center absolute top-56 left-[9vw] opacity-100 z-20 backdrop-blur-[4px] transition duration-300 ease-in-out hover:scale-110 animate-flash-top">
           <p className="text-white text-[24px]">
             I'm a Software Developer at Vonnue Innovations. I adore designing
@@ -49,6 +46,8 @@ function About() {
         particleColor="#ffffff"
         linkColor="#ffffff"
         bgColor="#004040"
+        minParticleSize={0.25}
+        maxParticleSize={2}
       />
     </div>
   );
