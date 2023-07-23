@@ -8,6 +8,8 @@ interface PartcleProps {
   shouldEnableLinks: boolean;
   linkColor: string;
   onHoverInteractivity: boolean;
+  minParticleSize: number;
+  maxParticleSize: number;
 }
 
 function Particle({
@@ -16,6 +18,8 @@ function Particle({
   shouldEnableLinks,
   linkColor,
   onHoverInteractivity,
+  minParticleSize,
+  maxParticleSize,
 }: PartcleProps) {
   const particlesInit = useCallback(async (engine: any) => {
     console.log(engine);
@@ -58,7 +62,7 @@ function Particle({
               quantity: 4,
             },
             repulse: {
-              distance: 200,
+              distance: 75,
               duration: 0.4,
             },
           },
@@ -84,13 +88,13 @@ function Particle({
               default: "bounce",
             },
             random: false,
-            speed: 6,
+            speed: 4,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 1000,
+              area: 900,
             },
             value: 80,
           },
@@ -101,7 +105,7 @@ function Particle({
             type: "circle",
           },
           size: {
-            value: { min: 0.25, max: 2 },
+            value: { min: minParticleSize, max: maxParticleSize },
           },
         },
         detectRetina: true,

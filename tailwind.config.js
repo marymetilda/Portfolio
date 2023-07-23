@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "linear-blue":
+          "linear-gradient(200deg, #004040 0%, #ffffff 50%, #004040 100%)",
+      },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
       },
@@ -18,7 +22,7 @@ module.exports = {
     },
     animation: {
       "flash-top": "animate-flash-top 2s linear",
-      "left": "animate-left 2s linear",
+      left: "animate-left 2s linear",
     },
     keyframes: {
       "animate-flash-top": {
