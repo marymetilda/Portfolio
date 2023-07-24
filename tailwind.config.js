@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -6,6 +8,10 @@ module.exports = {
       backgroundImage: {
         "linear-blue":
           "linear-gradient(200deg, #004040 0%, #ffffff 50%, #004040 100%)",
+        "linear-blue-white":
+          "linear-gradient(200deg, #ffffff 0%, #004040 50%, #ffffff 100%)",
+          "linear-blue-white-mix":
+          "linear-gradient(150deg, #ffffff 0%, #004040 20%, #ffffff 40%, #004040 60%, #ffffff 80%, #004040 100%)",
       },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
@@ -35,5 +41,22 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".my-rotate-y-180": {
+          transform: "rotateY(180deg)",
+        },
+        ".preserve-3d": {
+          transformStyle: "preserve-3d",
+        },
+        ".perspective": {
+          perspective: "1000px",
+        },
+        ".backface-hidden": {
+          "backface-visibility": "hidden",
+        },
+      });
+    }),
+  ],
 };
