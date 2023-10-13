@@ -1,9 +1,9 @@
 import React from "react";
 // import BackButton from "./components/BackButton";
-// import About from "./pages/About";
+import About from "./pages/About";
 // import Particle from "./components/Particle";
 // import WhiteBgCard from "./components/WhiteBgCard";
-// import Skills from "./pages/Skills";
+import Skills from "./pages/Skills";
 // import FlipingCard from "./components/FlipingCard";
 import Projects from "./pages/Projects";
 
