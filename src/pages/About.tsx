@@ -3,13 +3,20 @@ import BackButton from "../components/BackButton";
 import Particle from "../components/Particle";
 
 import codingImage from "../assets/codingWithThinking.png";
+import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate("/");
+  };
+
   return (
     <div className="w-full h-full">
       <div className="relative">
         <div className="absolute top-10 w-full flex items-center justify-center z-40 opacity-50">
-          <BackButton />
+          <BackButton handleBackClick={handleBackClick} />
         </div>
         <div className="p-8 border-solid border-2 border-white w-[50vw] h-fit flex items-center justify-center absolute top-56 left-[9vw] opacity-100 z-20 backdrop-blur-[4px] transition duration-300 ease-in-out hover:scale-110 animate-flash-top">
           <p className="text-white text-[24px]">
