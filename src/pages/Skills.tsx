@@ -1,11 +1,78 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import WhiteBgCard from "../components/WhiteBgCard";
 import Particle from "../components/Particle";
 import BackButton from "../components/BackButton";
+import SkillButton from "../components/SkillButton";
 
-const toolList = ["Anaconda", "Eclipse", "Jupyter", "Pycharm"];
+import HtmlLogo from "../assets/html.png";
+import CssLogo from "../assets/cssLogo.png";
+import jsLogo from "../assets/jsLogo.png";
+import tsLogo from "../assets/tsLogo.png";
+import reactLogo from "../assets/react.png";
+import tailwindLogo from "../assets/tailwind.png";
+import nextLogo from "../assets/next.svg";
+import reduxLogo from "../assets/redux.png";
+
+const skillList = [
+  [
+    {
+      skill: "HTML",
+      darkLine: 5,
+      skillLogo: HtmlLogo,
+    },
+    {
+      skill: "CSS",
+      darkLine: 5,
+      skillLogo: CssLogo,
+    },
+    {
+      skill: "JavaScript",
+      darkLine: 5,
+      skillLogo: jsLogo,
+    },
+    {
+      skill: "TypeScript",
+      darkLine: 5,
+      skillLogo: tsLogo,
+    },
+    {
+      skill: "React",
+      darkLine: 5,
+      skillLogo: reactLogo,
+    },
+  ],
+  [
+    {
+      skill: "Tailwind",
+      darkLine: 5,
+      skillLogo: tailwindLogo,
+    },
+    {
+      skill: "Next js",
+      darkLine: 3,
+      skillLogo: nextLogo,
+    },
+    {
+      skill: "Redux",
+      darkLine: 4,
+      skillLogo: reduxLogo,
+    },
+    {
+      skill: "Tailwind",
+      darkLine: 5,
+      skillLogo: tailwindLogo,
+    },
+  ],
+];
 
 function Skills() {
+  const navigate = useNavigate();
+  const handleBackClick = () => {
+    navigate("/");
+  };
+
   const computerSvg = (
     <svg
       aria-hidden="true"
@@ -39,8 +106,8 @@ function Skills() {
   return (
     <div className="h-screen w-screen bg-linear-blue">
       <div className="h-full w-full flex items-center justify-center gap-32 relative">
-      <div className="absolute top-10 w-full flex items-center justify-center z-40 opacity-50">
-          <BackButton />
+        <div className="absolute top-10 w-full flex items-center justify-center z-40 opacity-50">
+          <BackButton handleBackClick={handleBackClick} />
         </div>
         <WhiteBgCard>
           <div className="flex font-bold text-[25px] text-[#004040] group-hover:text-white justify-center gap-4">
@@ -50,35 +117,41 @@ function Skills() {
           <p className="text-[18px] text-[#004040] group-hover:text-white py-2">
             I enjoy writing clean code and creating useful products.
           </p>
-          <div className="text-[#004040] group-hover:text-white">
-            <strong>I like to code in</strong> <br />
-            <p>
-              Python, Java, Javascript, Node, MySQL, GraphQL, Spring, C, C++,
-              MongoDB
-            </p>
-          </div>
-          <div className="text-[#004040] group-hover:text-white">
-            <strong>Tools</strong>
-            <br />
-            <ul>
-              {toolList.map((tool: string) => {
-                return <li>{tool}</li>;
-              })}
-            </ul>
+          <p className="text-[18px] text-[#004040] group-hover:text-white py-2">
+            It's fun for me to bring new concepts to life. I consider myself
+            fortunate to be a frontend developer because my work has a direct
+            impact on the user's life.
+          </p>
+          <div className="flex flex-col gap-4">
+            {skillList[1].map((skillItem) => {
+              return (
+                <SkillButton
+                  skillLogo={skillItem.skillLogo}
+                  skill={skillItem.skill}
+                  darkLines={skillItem.darkLine}
+                />
+              );
+            })}
           </div>
         </WhiteBgCard>
         <WhiteBgCard>
           <div className="">
-            <div className="flex font-bold text-[25px] text-[#004040] group-hover:text-white justify-center gap-4">
+            <div className="flex font-bold text-[25px] text-[#004040] group-hover:text-white justify-center gap-4 pb-8">
               {paintSvg}
               <p> Frontend Developer</p>
             </div>
-            <p className="text-[18px] text-[#004040] group-hover:text-white py-2">
-              It's fun for me to bring new concepts to life. I consider myself
-              fortunate to be a frontend developer because my work has a direct
-              impact on the user's life.
-            </p>
-            <div className="text-[#004040] group-hover:text-white">
+            <div className="flex flex-col gap-4">
+              {skillList[0].map((skillItem) => {
+                return (
+                  <SkillButton
+                    skillLogo={skillItem.skillLogo}
+                    skill={skillItem.skill}
+                    darkLines={skillItem.darkLine}
+                  />
+                );
+              })}
+            </div>
+            {/* <div className="text-[#004040] group-hover:text-white">
               <strong>Skills</strong> <br />
               <p>
                 Html, Css, Js, Handlebars, React, Redux, Sass, Bootstrap,
@@ -89,10 +162,12 @@ function Skills() {
               <strong>Tools</strong>
               <br />
               <p>VScode, Figma, Github, AdobeXD etc.</p>
-            </div>
+            </div> */}
           </div>
         </WhiteBgCard>
-        <div className="fixed bottom-0 right-[35%] text-black text-opacity-20 text-[10vw] font-bold">Skills</div>
+        <div className="fixed bottom-0 right-[35%] text-black text-opacity-20 text-[10vw] font-bold">
+          Skills
+        </div>
       </div>
       <Particle
         onHoverInteractivity

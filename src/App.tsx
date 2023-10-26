@@ -1,21 +1,22 @@
 import React from "react";
-// import BackButton from "./components/BackButton";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import About from "./pages/About";
-// import Particle from "./components/Particle";
-// import WhiteBgCard from "./components/WhiteBgCard";
-import Skills from "./pages/Skills";
-// import FlipingCard from "./components/FlipingCard";
+import Home from "./pages/Home";
 import Projects from "./pages/Projects";
+import Skills from "./pages/Skills";
 
 function App() {
+  const appRouter = createBrowserRouter([
+    { path: "/", element: <Home /> },
+    { path: "/about", element: <About /> },
+    { path: "/projects", element: <Projects /> },
+    { path: "/skills", element: <Skills /> },
+  ]);
+
   return (
     <div>
-      {/* <BackButton /> */}
-      {/* <About /> */}
-      {/* <WhiteBgCard /> */}
-      {/* <Skills /> */}
-      {/* <FlipingCard /> */}
-      <Projects />
+      <RouterProvider router={appRouter} />
     </div>
   );
 }
