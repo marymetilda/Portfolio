@@ -25,17 +25,17 @@ function Home() {
 
   return (
     <div
-      style={{ backgroundSize: "contain" }}
+      style={{ backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
       className="p-6 px-24 bg-gray-500 flex items-center min-h-screen justify-between bg-hero-pattern bg-repeat"
     >
       <div className="flex flex-col items-start justify-center">
-        <p className="text-transparent bg-clip-text bg-linear-green text-4xl font-medium animate-appear">
+        <p className="text-transparent bg-clip-text bg-linear-green text-2xl font-medium animate-appear">
           HI THERE 👋🏻, I'M
         </p>
-        <p className="font-extrabold text-transparent text-8xl bg-clip-text bg-linear-blue-white animate-appear">
+        <p className="font-extrabold text-transparent text-4xl bg-clip-text bg-linear-blue-white animate-appear">
           MARY METILDA
         </p>
-        <p className="text-transparent bg-clip-text bg-linear-blue-white text-5xl font-bold mb-32 animate-appear">
+        <p className="text-transparent bg-clip-text bg-linear-blue-white text-3xl font-bold mb-32 animate-appear">
           FRONTEND DEVELOPER
         </p>
       </div>
