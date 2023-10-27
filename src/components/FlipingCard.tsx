@@ -33,10 +33,6 @@ function FlipingCard({ backSideChildren, siteUrl }: FlipingCardProps) {
               <a href="https://www.google.com/">github link</a>
             </p>
           </div>
-          {/* <a href={siteUrl}>{siteUrl}</a> */}
-          {/* <Link to={siteUrl}>
-            <p>{siteUrl}</p>
-          </Link> */}
           {backSideChildren}
         </div>
       </div>
