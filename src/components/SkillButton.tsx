@@ -13,7 +13,7 @@ function SkillButton({ darkLines, skill, skillLogo }: SkillButtonProps) {
   return (
     <div className="bg-linear-green group-hover:bg-linear-blue-vertical-middle shadow-2xl rounded-full h-15 w-full flex items-center justify-between gap-4 px-4">
       <div className="flex items-center gap-4 text-green-950 text-xl font-semibold">
-        <div className="bg-linear-blue-white p-2 rounded-full">
+        <div className="bg-linear-blue-white p-2 rounded-full w-fit h-fit">
           <img className="w-10 h-10 rounded-full" src={skillLogo} alt="html" />
         </div>
         <p>{skill}</p>
