@@ -122,7 +122,7 @@ function Skills() {
             fortunate to be a frontend developer because my work has a direct
             impact on the user's life.
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
             {skillList[1].map((skillItem) => {
               return (
                 <SkillButton
@@ -140,7 +140,7 @@ function Skills() {
               {paintSvg}
               <p> Frontend Developer</p>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-1">
               {skillList[0].map((skillItem) => {
                 return (
                   <SkillButton
