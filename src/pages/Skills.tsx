@@ -42,17 +42,17 @@ const skillList = [
       darkLine: 5,
       skillLogo: reactLogo,
     },
+    {
+      skill: "Next js",
+      darkLine: 3,
+      skillLogo: nextLogo,
+    },
   ],
   [
     {
       skill: "Tailwind",
       darkLine: 5,
       skillLogo: tailwindLogo,
-    },
-    {
-      skill: "Next js",
-      darkLine: 3,
-      skillLogo: nextLogo,
     },
     {
       skill: "Redux",
@@ -122,7 +122,7 @@ function Skills() {
             fortunate to be a frontend developer because my work has a direct
             impact on the user's life.
           </p>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-3">
             {skillList[1].map((skillItem) => {
               return (
                 <SkillButton
@@ -140,7 +140,7 @@ function Skills() {
               {paintSvg}
               <p> Frontend Developer</p>
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-3">
               {skillList[0].map((skillItem) => {
                 return (
                   <SkillButton
