@@ -42,13 +42,13 @@ const skillList = [
       darkLine: 5,
       skillLogo: reactLogo,
     },
+  ],
+  [
     {
       skill: "Next js",
       darkLine: 3,
       skillLogo: nextLogo,
     },
-  ],
-  [
     {
       skill: "Tailwind",
       darkLine: 5,
