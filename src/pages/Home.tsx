@@ -6,6 +6,9 @@ import AboutButton from "../assets/about.png";
 import ProjectsIcon from "../assets/projects.svg";
 import SkillsIcon from "../assets/skills.jpg";
 import ContactIcon from "../assets/contact.png";
+import { Data } from "../Data/data";
+
+const homepageData = Data.home;
 
 function Home() {
   const navigate = useNavigate();
@@ -30,18 +33,21 @@ function Home() {
     >
       <div className="flex flex-col items-start justify-center">
         <p className="text-transparent bg-clip-text bg-linear-green text-3xl font-medium animate-appear">
-          HI THERE 👋🏻, I'M
+          {homepageData.introStatement}
         </p>
         <p className="font-extrabold text-transparent text-6xl bg-clip-text bg-linear-blue-white animate-appear">
-          MARY METILDA
+          {homepageData.name}
         </p>
         <p className="text-transparent bg-clip-text bg-linear-blue-white text-5xl font-bold mb-32 animate-appear">
-          FRONTEND DEVELOPER
+          {homepageData.designation}
         </p>
       </div>
       <div className="flex flex-col items-end pr-32">
         <div className="flex items-end justify-end gap-4 animate-appear">
-          <Button handleButtonClick={handleAbout} buttonLabel="About Me" />
+          <Button
+            handleButtonClick={handleAbout}
+            buttonLabel={homepageData.aboutButtonLabel}
+          />
           <div className="flex flex-col items-center">
             <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
@@ -53,7 +59,10 @@ function Home() {
           </div>
         </div>
         <div className="flex items-end justify-end gap-4 animate-appear">
-          <Button handleButtonClick={handleSkill} buttonLabel="Skills" />
+          <Button
+            handleButtonClick={handleSkill}
+            buttonLabel={homepageData.skillsButtonLabel}
+          />
           <div className="flex flex-col items-center">
             <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
@@ -69,7 +78,10 @@ function Home() {
           </div>
         </div>
         <div className="flex items-end justify-end gap-4 animate-appear">
-          <Button handleButtonClick={handleProject} buttonLabel="Projects" />
+          <Button
+            handleButtonClick={handleProject}
+            buttonLabel={homepageData.projectsButtonLabel}
+          />
           <div className="flex flex-col items-center">
             <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
@@ -85,7 +97,10 @@ function Home() {
           </div>
         </div>
         <div className="flex items-center justify-end gap-4 animate-appear">
-          <Button handleButtonClick={handleContact} buttonLabel="Contact Me" />
+          <Button
+            handleButtonClick={handleContact}
+            buttonLabel={homepageData.contanctButtonLabel}
+          />
           <div className="flex flex-col items-center">
             <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
