@@ -6,66 +6,9 @@ import Particle from "../components/Particle";
 import BackButton from "../components/BackButton";
 import SkillButton from "../components/SkillButton";
 
-import HtmlLogo from "../assets/html.png";
-import CssLogo from "../assets/cssLogo.png";
-import jsLogo from "../assets/jsLogo.png";
-import tsLogo from "../assets/tsLogo.png";
-import reactLogo from "../assets/react.png";
-import tailwindLogo from "../assets/tailwind.png";
-import nextLogo from "../assets/next.svg";
-import reduxLogo from "../assets/redux.png";
+import { Data } from "../Data/data";
 
-const skillList = [
-  [
-    {
-      skill: "HTML",
-      darkLine: 5,
-      skillLogo: HtmlLogo,
-    },
-    {
-      skill: "CSS",
-      darkLine: 5,
-      skillLogo: CssLogo,
-    },
-    {
-      skill: "JavaScript",
-      darkLine: 5,
-      skillLogo: jsLogo,
-    },
-    {
-      skill: "TypeScript",
-      darkLine: 5,
-      skillLogo: tsLogo,
-    },
-    {
-      skill: "React",
-      darkLine: 5,
-      skillLogo: reactLogo,
-    },
-  ],
-  [
-    {
-      skill: "Next js",
-      darkLine: 3,
-      skillLogo: nextLogo,
-    },
-    {
-      skill: "Tailwind",
-      darkLine: 5,
-      skillLogo: tailwindLogo,
-    },
-    {
-      skill: "Redux",
-      darkLine: 4,
-      skillLogo: reduxLogo,
-    },
-    {
-      skill: "Tailwind",
-      darkLine: 5,
-      skillLogo: tailwindLogo,
-    },
-  ],
-];
+const skillData = Data.skills;
 
 function Skills() {
   const navigate = useNavigate();
@@ -104,44 +47,19 @@ function Skills() {
   );
 
   return (
-    <div className="h-screen w-screen bg-linear-blue">
-      <div className="h-full w-full flex items-center justify-center gap-32 relative">
-        <div className="absolute top-10 w-full flex items-center justify-center z-40 opacity-50">
+    <div className="h-full w-full min-h-screen bg-linear-blue">
+      <div className="h-full w-full flex items-start justify-center gap-32 relative py-20">
+        <div className="absolute top-10 w-full flex items-center justify-end pr-4 sm:pr-0 sm:justify-center z-40 opacity-50">
           <BackButton handleBackClick={handleBackClick} />
         </div>
-        <WhiteBgCard>
-          <div className="flex font-bold text-[25px] text-[#004040] group-hover:text-white justify-center gap-4">
-            {computerSvg}
-            <p>Software Developer</p>
-          </div>
-          <p className="text-[18px] text-[#004040] group-hover:text-white py-2">
-            I enjoy writing clean code and creating useful products.
-          </p>
-          <p className="text-[18px] text-[#004040] group-hover:text-white py-2">
-            It's fun for me to bring new concepts to life. I consider myself
-            fortunate to be a frontend developer because my work has a direct
-            impact on the user's life.
-          </p>
-          <div className="flex flex-col gap-3">
-            {skillList[1].map((skillItem) => {
-              return (
-                <SkillButton
-                  skillLogo={skillItem.skillLogo}
-                  skill={skillItem.skill}
-                  darkLines={skillItem.darkLine}
-                />
-              );
-            })}
-          </div>
-        </WhiteBgCard>
-        <WhiteBgCard>
-          <div className="">
+        <div className="w-fit h-full sm:block hidden">
+          <WhiteBgCard>
             <div className="flex font-bold text-[25px] text-[#004040] group-hover:text-white justify-center gap-4 pb-8">
-              {paintSvg}
-              <p> Frontend Developer</p>
+              {computerSvg}
+              <p>{skillData.skillList.leftCard.title}</p>
             </div>
             <div className="flex flex-col gap-3">
-              {skillList[0].map((skillItem) => {
+              {skillData.skillList.leftCard.skills.map((skillItem) => {
                 return (
                   <SkillButton
                     skillLogo={skillItem.skillLogo}
@@ -151,22 +69,65 @@ function Skills() {
                 );
               })}
             </div>
-            {/* <div className="text-[#004040] group-hover:text-white">
-              <strong>Skills</strong> <br />
-              <p>
-                Html, Css, Js, Handlebars, React, Redux, Sass, Bootstrap,
-                Firebase
-              </p>
+          </WhiteBgCard>
+        </div>
+        <div className="w-fit h-full sm:block hidden">
+          <WhiteBgCard>
+            <div className="">
+              <div className="flex font-bold text-[25px] text-[#004040] group-hover:text-white justify-center gap-4 pb-8">
+                {paintSvg}
+                <p>{skillData.skillList.rightCard.title}</p>
+              </div>
+              <div className="flex flex-col gap-3">
+                {skillData.skillList.rightCard.skills.map((skillItem) => {
+                  return (
+                    <SkillButton
+                      skillLogo={skillItem.skillLogo}
+                      skill={skillItem.skill}
+                      darkLines={skillItem.darkLine}
+                    />
+                  );
+                })}
+              </div>
             </div>
-            <div className=" text-[#004040] group-hover:text-white">
-              <strong>Tools</strong>
-              <br />
-              <p>VScode, Figma, Github, AdobeXD etc.</p>
-            </div> */}
-          </div>
-        </WhiteBgCard>
-        <div className="fixed bottom-0 right-[35%] text-black text-opacity-20 text-[10vw] font-bold">
-          Skills
+          </WhiteBgCard>
+        </div>
+        <div className="sm:hidden">
+          <WhiteBgCard>
+            <div className="">
+              <div className="flex font-bold text-[15px] text-[#004040] group-hover:text-white justify-center gap-4 pb-4 sm:pb-8">
+                {paintSvg}
+                <p> I Love Working with...</p>
+              </div>
+              <div className="w-full flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-3 w-full">
+                  {skillData.skillList.leftCard.skills.map((skillItem) => {
+                    return (
+                      <SkillButton
+                        skillLogo={skillItem.skillLogo}
+                        skill={skillItem.skill}
+                        darkLines={skillItem.darkLine}
+                      />
+                    );
+                  })}
+                </div>
+                <div className="flex flex-col gap-3 w-full">
+                  {skillData.skillList.rightCard.skills.map((skillItem) => {
+                    return (
+                      <SkillButton
+                        skillLogo={skillItem.skillLogo}
+                        skill={skillItem.skill}
+                        darkLines={skillItem.darkLine}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </WhiteBgCard>
+        </div>
+        <div className="fixed top-0 sm:top-auto sm:bottom-0 right-[35%] text-black text-opacity-20 text-[25vw] sm:text-[10vw] font-bold">
+          {skillData.title}
         </div>
       </div>
       <Particle
