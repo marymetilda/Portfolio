@@ -29,30 +29,30 @@ function Home() {
   return (
     <div
       style={{ backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
-      className="p-6 px-24 bg-gray-500 flex items-center min-h-screen justify-between bg-hero-pattern bg-repeat"
+      className="p-6 px-[7vw] bg-gray-500 flex flex-col md:flex-row items-center justify-center md:justify-between min-h-screen bg-hero-pattern bg-repeat"
     >
       <div className="flex flex-col items-start justify-center">
-        <p className="text-transparent bg-clip-text bg-linear-green text-3xl font-medium animate-appear">
+        <p className="text-transparent bg-clip-text bg-linear-green text-[4vw] md:text-[1.5vw] font-medium animate-appear">
           {homepageData.introStatement}
         </p>
-        <p className="font-extrabold text-transparent text-6xl bg-clip-text bg-linear-blue-white animate-appear">
+        <p className="font-extrabold text-transparent text-[7vw] md:text-[4vw] bg-clip-text bg-linear-blue-white animate-appear">
           {homepageData.name}
         </p>
-        <p className="text-transparent bg-clip-text bg-linear-blue-white text-5xl font-bold mb-32 animate-appear">
+        <p className="text-transparent bg-clip-text bg-linear-blue-white text-[6vw] md:text-[3vw] font-bold mb-32 animate-appear">
           {homepageData.designation}
         </p>
       </div>
-      <div className="flex flex-col items-end pr-32">
+      <div className="flex flex-col items-end gap-4 md:gap-0 pr-0 md:pr-[4vw]">
         <div className="flex items-end justify-end gap-4 animate-appear">
           <Button
             handleButtonClick={handleAbout}
             buttonLabel={homepageData.aboutButtonLabel}
           />
           <div className="flex flex-col items-center">
-            <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
+            <div className="hidden md:block w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
               onClick={handleAbout}
-              className="w-12 h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
+              className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
             >
               <img className="h-full w-full" src={AboutButton} alt="about" />
             </button>
@@ -64,10 +64,10 @@ function Home() {
             buttonLabel={homepageData.skillsButtonLabel}
           />
           <div className="flex flex-col items-center">
-            <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
+            <div className="hidden md:block w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
               onClick={handleSkill}
-              className="w-12 h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
+              className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
             >
               <img
                 className="h-full w-full rounded-full"
@@ -83,10 +83,10 @@ function Home() {
             buttonLabel={homepageData.projectsButtonLabel}
           />
           <div className="flex flex-col items-center">
-            <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
+            <div className="hidden md:block w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
               onClick={handleProject}
-              className="w-12 h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
+              className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
             >
               <img
                 className="h-full w-full"
@@ -102,10 +102,10 @@ function Home() {
             buttonLabel={homepageData.contanctButtonLabel}
           />
           <div className="flex flex-col items-center">
-            <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
+            <div className="hidden md:block w-1 h-20 bg-linear-blue-vertical-middle" />
             <button
               onClick={handleContact}
-              className="w-12 h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
+              className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center"
             >
               <img
                 className="h-full w-full rounded-full"
@@ -113,7 +113,7 @@ function Home() {
                 alt="contact"
               />
             </button>
-            <div className="w-1 h-20 bg-linear-blue-vertical-middle" />
+            <div className="hidden md:block w-1 h-20 bg-linear-blue-vertical-middle" />
           </div>
         </div>
       </div>
