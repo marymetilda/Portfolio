@@ -50,6 +50,9 @@ function Projects() {
       <div className="fixed top-0 left-[10vw] text-black text-opacity-20 text-[10vw] font-bold">
         {projectData.title}
       </div>
+      <div className="text-white absolute inset-0 bg-teal-700 opacity-75 h-screen w-screen text-2xl z-50 text-center flex items-center justify-center font-bold md:hidden">
+        <p> In Progress ...</p>
+      </div>
     </div>
   );
 }
