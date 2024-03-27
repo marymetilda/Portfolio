@@ -6,6 +6,9 @@ import AboutButton from "../assets/about.png";
 import ProjectsIcon from "../assets/projects.svg";
 import SkillsIcon from "../assets/skills.jpg";
 import ContactIcon from "../assets/contact.png";
+import GithubIcon from "../assets/github.png";
+import ResumeIcon from "../assets/resume.png";
+import LinkedIn from "../assets/linkedin.svg";
 import { Data } from "../Data/data";
 
 const homepageData = Data.home;
@@ -23,7 +26,7 @@ function Home() {
     navigate("/projects");
   };
   const handleContact = () => {
-    navigate("/projects");
+    navigate("/contact");
   };
 
   return (
@@ -41,6 +44,24 @@ function Home() {
         <p className="text-transparent bg-clip-text bg-linear-blue-white text-[6vw] md:text-[3vw] font-bold mb-32 animate-appear">
           {homepageData.designation}
         </p>
+        <div className="hidden md:flex gap-4">
+          {" "}
+          <div className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+            <a href="https://github.com/marymetilda">
+              <img className="h-full w-full" src={GithubIcon} alt="about" />
+            </a>
+          </div>
+          <div className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1LzXMUy_YOeDrnzrcNWHj8zm1gVsebP72/view?usp=sharing">
+              <img className="h-full w-full" src={ResumeIcon} alt="about" />
+            </a>
+          </div>
+          <div className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+            <a href="https://www.linkedin.com/in/mary-metilda-9961aa279">
+              <img className="h-full w-full" src={LinkedIn} alt="about" />
+            </a>
+          </div>
+        </div>
       </div>
       <div className="flex flex-col items-end gap-4 md:gap-0 pr-0 md:pr-[4vw]">
         <div className="flex items-end justify-end gap-4 animate-appear">
@@ -114,6 +135,24 @@ function Home() {
               />
             </button>
             <div className="hidden md:block w-1 h-20 bg-linear-blue-vertical-middle" />
+          </div>
+        </div>
+        <div className="flex md:hidden gap-4">
+          {" "}
+          <div className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+            <a href="https://github.com/marymetilda">
+              <img className="h-full w-full" src={GithubIcon} alt="about" />
+            </a>
+          </div>
+          <div className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1LzXMUy_YOeDrnzrcNWHj8zm1gVsebP72/view?usp=sharing">
+              <img className="h-full w-full" src={ResumeIcon} alt="about" />
+            </a>
+          </div>
+          <div className="w-8 md:w-12 h-8 md:h-12 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+            <a href="https://www.linkedin.com/in/mary-metilda-9961aa279">
+              <img className="h-full w-full" src={LinkedIn} alt="about" />
+            </a>
           </div>
         </div>
       </div>
