@@ -36,17 +36,16 @@ export const Data = {
     title: "Projects",
     projectList: [
       {
-        id: 1,
-        projectUrl: "https://celluloidgpt-15b7a.web.app/",
-        title: "Celluloid GPT",
-        description:
-          "Clone of Netflix using React js. API taken from TMDB and Open AI",
+        id: 0,
+        projectUrl: "https://e-cart-g3xb.onrender.com/",
+        title: "E-Commerce Website",
+        description: "An E-Commerce Website MERN Stack",
         liveText: "Live URL",
         githubText: "Source code",
-        githubLink: "https://github.com/marymetilda/CelluloidGPT",
+        githubLink: "https://github.com/marymetilda/E-CART-",
       },
       {
-        id: 2,
+        id: 1,
         projectUrl: "https://yummy-tasty.netlify.app",
         title: "Yummy Tasty Food App",
         description:
@@ -56,7 +55,26 @@ export const Data = {
         githubLink: "https://github.com/marymetilda/Yummy_Tasty_Food_App",
       },
       {
+        id: 2,
+        projectUrl: "https://todo-app-vue-3.netlify.app/",
+        title: "TODO App",
+        description: "TODO App using Vue Js",
+        liveText: "Live URL",
+        githubText: "Source code",
+        githubLink: "https://github.com/marymetilda/vue-todos",
+      },
+      {
         id: 3,
+        projectUrl: "https://celluloidgpt-15b7a.web.app/",
+        title: "Celluloid GPT",
+        description:
+          "Clone of Netflix using React js. API taken from TMDB and Open AI",
+        liveText: "Live URL",
+        githubText: "Source code",
+        githubLink: "https://github.com/marymetilda/CelluloidGPT",
+      },
+      {
+        id: 4,
         projectUrl: "https://my-photo-book.netlify.app",
         title: "Simple Photo Book",
         description:
@@ -66,21 +84,21 @@ export const Data = {
         githubLink: "https://github.com/marymetilda/My-Photo-Book",
       },
       {
-        id: 4,
+        id: 5,
         projectUrl: "https://doordashwebpage.netlify.app",
         title: "Doordash website clone",
         description: "Clone the Doordash website using html and css",
         liveText: "Live URL",
       },
       {
-        id: 5,
+        id: 6,
         projectUrl: "https://azurewebpage.netlify.app",
         title: "Azure website clone",
         description: "Clone the Azure website using html and css",
         liveText: "Live URL",
       },
       {
-        id: 6,
+        id: 7,
         projectUrl: "https://airbnb300.netlify.app",
         title: "Airbnb website clone",
         description: "Clone the Airbnb website using html and css",

@@ -1,13 +1,40 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import FlipingCard from "../components/FlipingCard";
 import BackButton from "../components/BackButton";
 import { Data } from "../Data/data";
-import "swiper/css";
 
 const projectData = Data.projects;
+
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 3000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 1000,
+  responsive: [
+    {
+      breakpoint: 750,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 400,
+      settings: {
+        slidesToShow: 1,
+        centerPadding: "0",
+      },
+    },
+  ],
+};
 
 function Projects() {
   const navigate = useNavigate();
@@ -20,38 +47,13 @@ function Projects() {
       <div className="absolute top-[12vh] right-[10vw] z-40 opacity-50">
         <BackButton handleBackClick={handleBackClick} />
       </div>
-      <Swiper
-        autoplay={{ pauseOnMouseEnter: true, delay: 2500 }}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 5,
-            spaceBetween: 20,
-          },
-        }}
-        loop
-        className="flex items-center justify-center gap-12"
-      >
+      <Slider {...settings} className="w-full sm:block">
         {projectData.projectList.map((project, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <FlipingCard {...project} />
-            </SwiperSlide>
-          );
+          return <FlipingCard {...project} />;
         })}
-      </Swiper>
+      </Slider>
       <div className="fixed top-0 left-[10vw] text-black text-opacity-20 text-[10vw] font-bold">
         {projectData.title}
-      </div>
-      <div className="text-white absolute inset-0 bg-teal-700 opacity-75 h-screen w-screen text-2xl z-50 text-center flex items-center justify-center font-bold md:hidden">
-        <p> In Progress ...</p>
       </div>
     </div>
   );
