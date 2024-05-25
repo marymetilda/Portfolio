@@ -21,7 +21,7 @@ function FlipingCard({
   githubText,
 }: FlipingCardProps) {
   return (
-    <div className="bg-transparent cursor-pointer group perspective w-fit h-fit">
+    <div className="ml-11 md:ml-0 bg-transparent cursor-pointer group perspective w-fit h-fit">
       <div className="relative preserve-3d group-hover:my-rotate-y-180 w-[15rem] h-[50vh] duration-1000 bg-linear-blue-white border-2 border-solid border-white-1 rounded-tl-[50px] rounded-br-[50px]">
         <div className="absolute backface-hidden border-2 border-[#057777] w-full h-full rounded-tl-[50px] rounded-br-[50px] bg-linear-blue overflow-hidden">
           <iframe

@@ -6,10 +6,12 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
+// import { SparklesPreview } from "./pages/SparklePreview";
 
 function App() {
   const appRouter = createBrowserRouter([
     { path: "/", element: <Home /> },
+    // { path: "/sparkle", element: <SparklesPreview /> },
     { path: "/about", element: <About /> },
     { path: "/projects", element: <Projects /> },
     { path: "/skills", element: <Skills /> },
