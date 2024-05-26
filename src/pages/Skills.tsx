@@ -131,6 +131,7 @@ function Skills() {
         </div>
       </div>
       <Particle
+        density={80}
         onHoverInteractivity
         shouldEnableLinks
         particleColor="#004040"

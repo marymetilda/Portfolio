@@ -33,6 +33,7 @@ const Contact = () => {
         </div>
       </div>
       <Particle
+        density={800}
         onHoverInteractivity={false}
         shouldEnableLinks={false}
         particleColor="#ffffff"

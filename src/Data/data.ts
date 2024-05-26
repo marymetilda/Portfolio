@@ -13,14 +13,8 @@ import gitLogo from "../assets/gitLogo.png";
 
 export const Data = {
   about: {
-    primaryDescription:
-      "I’m a Software Developer at Vonnue Innovations. I adore designing user-friendly websites that are both simple and elegant. I consider myself to be a lifelong learner. I’m proficient in data structures and algorithms.",
-    secondaryDescription:
-      "It's fun for me to bring new concepts to life. I consider myself fortunate to be a frontend developer because my work has a direct impact on the user's life.",
-    tertiaryDescription:
-      "I enjoy writing clean code and creating useful products.",
-    quinaryDescription:
-      " I've been fascinated by technology since I was a child and grown up as a Tech Savvy",
+    description:
+      "I’m an experienced front-end developer proficient in optimizing web performance and ensuring cross-browser compatibility.\n\n I adore designing user-friendly websites that are both simple and elegant. I consider myself to be a lifelong learner.\n\n I consider myself fortunate to be a frontend developer because my work has a direct impact on the user’s life.\n\n I enjoy writing clean code and creating useful products.",
     title: "About",
   },
   home: {
