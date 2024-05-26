@@ -11,7 +11,6 @@ import Contact from "./pages/Contact";
 function App() {
   const appRouter = createBrowserRouter([
     { path: "/", element: <Home /> },
-    // { path: "/sparkle", element: <SparklesPreview /> },
     { path: "/about", element: <About /> },
     { path: "/projects", element: <Projects /> },
     { path: "/skills", element: <Skills /> },

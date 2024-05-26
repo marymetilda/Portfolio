@@ -4,12 +4,13 @@ import { loadFull } from "tsparticles";
 
 interface PartcleProps {
   bgColor: string;
-  particleColor: string;
+  particleColor: string | string[];
   shouldEnableLinks: boolean;
   linkColor: string;
   onHoverInteractivity: boolean;
   minParticleSize: number;
   maxParticleSize: number;
+  density: number;
 }
 
 function Particle({
@@ -20,6 +21,7 @@ function Particle({
   onHoverInteractivity,
   minParticleSize,
   maxParticleSize,
+  density,
 }: PartcleProps) {
   const particlesInit = useCallback(async (engine: any) => {
     console.log(engine);
@@ -96,13 +98,13 @@ function Particle({
               enable: true,
               area: 900,
             },
-            value: 80,
+            value: density,
           },
           opacity: {
             value: 0.5,
           },
           shape: {
-            type: "circle",
+            type: "edge",
           },
           size: {
             value: { min: minParticleSize, max: maxParticleSize },
