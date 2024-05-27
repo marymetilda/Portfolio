@@ -9,10 +9,10 @@ function BackButton({ handleBackClick }: BackButtonProps) {
   return (
     <button
       onClick={handleBackClick}
-      className="bg-white p-2 w-fit h-fit rounded-full hover:opacity-10"
+      className="bg-white p-1 md:p-2 w-fit h-fit rounded-full hover:opacity-10"
     >
       <a href="/">
-        <IoArrowBackOutline className="w-5 sm:w-8 h-5 w:h-8" />
+        <IoArrowBackOutline className="w-3 md:w-5 h-3 md:h-5" />
       </a>
     </button>
   );
