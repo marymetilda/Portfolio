@@ -54,6 +54,7 @@ function Sample() {
                 {skillData.skillList.rightCard.skills.map((skillItem) => {
                   return (
                     <SkillButton
+                      key={skillItem.skill}
                       skillLogo={skillItem.skillLogo}
                       skill={skillItem.skill}
                       darkLines={skillItem.darkLine}
@@ -103,6 +104,7 @@ function Sample() {
       </div>
       <AnimatePresence>
         <CanvasRevealEffect
+          showGradient={false}
           animationSpeed={5}
           containerClassName="bg-transparent h-full w-full absolute inset-0"
           colors={[
