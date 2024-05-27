@@ -60,8 +60,11 @@ module.exports = {
 
       movement: {
         "0%, 20%, 40%, 60%, 80%, 100%": { transform: "translateX(0rem)" },
-        "10%": { transform: "translateX(2rem)" },
-        "60%": { transform: "translateX(-2rem)" },
+        "10%": { transform: "scale(120%)" },
+        "30%": { transform: "scale(100%)" },
+        "50%": { transform: "scale(120%)" },
+        "70%": { transform: "scale(100%)" },
+        "90%": { transform: "scale(120%)" },
       },
       "animate-flash-top": {
         from: { opacity: 0, bottom: 0, transform: "translateY(20vh)" },

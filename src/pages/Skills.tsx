@@ -1,14 +1,13 @@
 "use client";
 import React from "react";
 
-import { AnimatePresence } from "framer-motion";
-import { CanvasRevealEffect } from "../components/CanvasRevealEffect";
 import SkillButton from "../components/SkillButton";
 import WhiteBgCard from "../components/WhiteBgCard";
 import BackButton from "../components/BackButton";
 
 import { Data } from "../Data/data";
 import { useNavigate } from "react-router-dom";
+import Particle from "../components/Particle";
 
 const skillData = Data.skills;
 
@@ -102,20 +101,16 @@ function Sample() {
           {skillData.title}
         </div>
       </div>
-      <AnimatePresence>
-        <CanvasRevealEffect
-          animationSpeed={5}
-          containerClassName="bg-transparent h-full w-full absolute inset-0"
-          colors={[
-            [14, 255, 255],
-            // [285, 14, 285],
-            // [129, 140, 248],
-          ]}
-          opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
-          dotSize={10}
-        />
-      </AnimatePresence>
-      <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
+      <Particle
+        density={200}
+        onHoverInteractivity={false}
+        shouldEnableLinks={true}
+        particleColor="#ffffff"
+        linkColor="#29cce5"
+        bgColor="transparent"
+        minParticleSize={0.25}
+        maxParticleSize={2}
+      />
     </div>
   );
 }

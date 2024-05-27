@@ -104,7 +104,7 @@ function Particle({
             value: 0.5,
           },
           shape: {
-            type: "edge",
+            type: "circle",
           },
           size: {
             value: { min: minParticleSize, max: maxParticleSize },
