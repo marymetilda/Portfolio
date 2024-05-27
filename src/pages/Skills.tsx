@@ -104,19 +104,18 @@ function Sample() {
       </div>
       <AnimatePresence>
         <CanvasRevealEffect
-          showGradient={false}
           animationSpeed={5}
           containerClassName="bg-transparent h-full w-full absolute inset-0"
           colors={[
             [14, 255, 255],
-            [285, 14, 285],
-            [129, 140, 248],
+            // [285, 14, 285],
+            // [129, 140, 248],
           ]}
           opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
-          dotSize={2}
+          dotSize={10}
         />
       </AnimatePresence>
-      {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
+      <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
     </div>
   );
 }
