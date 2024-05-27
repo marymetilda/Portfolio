@@ -26,7 +26,7 @@ module.exports = {
         "linear-indigo":
           "linear-gradient(150deg, transparent 0%, #3f51b5 20%, #3f51b5 40%, #3f51b5 60%, #3f51b5 80%, transparent 100%)",
         "linear-violet":
-          "linear-gradient(150deg, #a46ede 0%, #3f51b5 20%, #a46ede 40%, #3f51b5 60%, #a46ede 80%, #3f51b5 100%)",
+          "linear-gradient(150deg, #000 0%, #3f51b5 20%, #a46ede 40%, #000 60%, #3f51b5 80%, #000 100%)",
       },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
