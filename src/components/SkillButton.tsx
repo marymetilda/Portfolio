@@ -1,4 +1,5 @@
 import React from "react";
+import { CanvasRevealEffectContainer } from "./Card";
 
 interface SkillButtonProps {
   darkLines: number;
@@ -7,31 +8,21 @@ interface SkillButtonProps {
 }
 
 function SkillButton({ darkLines, skill, skillLogo }: SkillButtonProps) {
-  const totalLength = 5;
-  const whiteLines = totalLength - darkLines;
+  const Logo = (
+    <div className="bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-300 via-sky-300 to-indigo-300 h-fit w-fit p-2 rounded-full border border-indigo-500 group-hover:animate-movement">
+      <div className="w-8 h-8">
+        <img
+          className="w-full h-full rounded-full"
+          src={skillLogo}
+          alt="html"
+        />
+      </div>
+    </div>
+  );
 
   return (
-    <div className="bg-linear-green group-hover:bg-linear-blue-vertical-middle shadow-2xl rounded-full h-7 sm:h-10 w-full flex items-center justify-between gap-4 px-[4%]">
-      <div className="flex items-center gap-4 text-green-950 text-[80%] font-semibold">
-        <div className="bg-linear-blue-white p-0.5 rounded-full w-fit h-fit">
-          <div className="w-5 h-5">
-            <img
-              className="w-full h-full rounded-full"
-              src={skillLogo}
-              alt="html"
-            />
-          </div>
-        </div>
-        <p className="whitespace-nowrap hidden sm:block">{skill}</p>
-      </div>
-      <div className="flex items-center justify-center gap-1">
-        {Array.from({ length: darkLines })?.map(() => {
-          return <div className="w-2 h-2 rounded-full bg-linear-blue-green" />;
-        })}
-        {Array.from({ length: whiteLines })?.map(() => {
-          return <div className="w-2 h-2 rounded-full bg-linear-white-green" />;
-        })}
-      </div>
+    <div className="bg-gray-800 text-white h-fit w-[40%] flex items-center justify-center">
+      <CanvasRevealEffectContainer title={skill} icon={Logo} />
     </div>
   );
 }
