@@ -47,8 +47,22 @@ module.exports = {
       left: "animate-left 2s linear",
       "ltr-linear-infinite": "move-bg 10s linear infinite",
       appear: "animate-appear 1s ease-in-out",
+      roll: "roll 3s infinite ",
+      movement: "movement 5s infinite",
     },
     keyframes: {
+      roll: {
+        "0%, 10%, 20%, 30%, 40%, 60%, 70%, 80%, 90%, 100%": {
+          transform: "scale(1)",
+        },
+        "50%": { transform: "scaleY(0)" },
+      },
+
+      movement: {
+        "0%, 20%, 40%, 60%, 80%, 100%": { transform: "translateX(0rem)" },
+        "10%": { transform: "translateX(2rem)" },
+        "60%": { transform: "translateX(-2rem)" },
+      },
       "animate-flash-top": {
         from: { opacity: 0, bottom: 0, transform: "translateY(20vh)" },
         to: { opacity: 1, bottom: 0, transform: "translateY(0)" },

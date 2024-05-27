@@ -6,7 +6,7 @@ interface WhiteBgCardProps {
 
 function WhiteBgCard({ children }: WhiteBgCardProps) {
   return (
-    <div className="group sm:w-[40vw] md:w-[30vw] w-[90vw] h-full p-8 z-10 flex flex-col justify-start bg-opacity-50 hover:bg-opacity-75 bg-[#fcf6f4] hover:bg-[#004040] border-8 border-solid border-grey-1 shadow-lg">
+    <div className="group relative z-20 sm:w-[40vw] md:w-[30vw] w-[90vw] opacity-80 h-full p-4 lg:p-6 xl:p-8 flex flex-col justify-start bg-gray-700 md:shadow-[10px_10px_24px_7px_#3182ce] rounded-2xl">
       {children}
     </div>
   );
