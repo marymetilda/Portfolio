@@ -196,7 +196,7 @@ function Home() {
                 </a>
               </div>
               <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
-                <a href="https://drive.google.com/file/d/1LzXMUy_YOeDrnzrcNWHj8zm1gVsebP72/view?usp=sharing">
+                <a href="https://drive.google.com/file/d/1l5i1ToE3xU7X3W9k6YBdK9_IVTvLNRTN/view?usp=drivesdk">
                   <img className="h-full w-full" src={ResumeIcon} alt="about" />
                 </a>
               </div>
