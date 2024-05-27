@@ -23,7 +23,7 @@ export const Data = {
     designation: "Frontend Developer",
     aboutButtonLabel: "About me",
     skillsButtonLabel: "My Skills",
-    projectsButtonLabel: "My Projects",
+    projectsButtonLabel: "Projects",
     contanctButtonLabel: "Contact me",
   },
   projects: {
