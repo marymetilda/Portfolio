@@ -29,7 +29,7 @@ export const TextGenerateEffect = ({
       <motion.div ref={scope}>
         {wordsArray.map((word, idx) => {
           return (
-            <motion.span key={word + idx} className=" opacity-0">
+            <motion.span key={word + idx} className={`opacity-0 ${className}`}>
               {word}{" "}
             </motion.span>
           );
