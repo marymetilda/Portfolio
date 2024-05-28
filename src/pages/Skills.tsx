@@ -11,7 +11,7 @@ import Particle from "../components/Particle";
 
 const skillData = Data.skills;
 
-function Sample() {
+function Skills() {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -115,4 +115,4 @@ function Sample() {
   );
 }
 
-export default Sample;
+export default Skills;

@@ -24,7 +24,7 @@ function Home() {
     navigate("/skills");
   };
   const handleProject = () => {
-    navigate("/projects");
+    navigate("/sample");
   };
   const handleContact = () => {
     navigate("/contact");
