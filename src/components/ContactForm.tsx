@@ -21,6 +21,8 @@ const ContactForm = () => {
   const sendEmail = (e: any) => {
     e.preventDefault();
     if (validMessage) {
+      console.log("hello");
+
       emailjs
         .send(
           "service_smtwx1b",
