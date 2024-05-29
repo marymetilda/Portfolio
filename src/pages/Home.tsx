@@ -10,8 +10,11 @@ import GithubIcon from "../assets/github.png";
 import ResumeIcon from "../assets/resume.png";
 import LinkedIn from "../assets/linkedin.svg";
 import { useEffect, useState } from "react";
+import { FlipWords } from "../components/FlipWords";
 
 const homepageData = Data.home;
+
+const words = ["Mary Metilda", "A Frontend Developer", "A React Developer"];
 
 function Home() {
   const [shouldShowName, setShouldShowName] = useState(true);
@@ -30,14 +33,12 @@ function Home() {
     navigate("/contact");
   };
 
-  const duration = shouldShowName ? 3000 : 5000;
-
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShouldShowName(!shouldShowName);
-    }, duration);
-    return () => clearInterval(interval);
-  }, [shouldShowName]);
+    const timeout = setTimeout(() => {
+      setShouldShowName(false);
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const GradientBar = () => (
     <div className="relative z-10 h-12 w-4 block">
@@ -111,99 +112,115 @@ function Home() {
             <div className="absolute inset-x-60 bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
             <div className="absolute inset-x-60 bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
           </div>
-          <div className="flex flex-col items-end md:gap-0 pr-0 md:pr-[4vw]">
-            <div className="flex items-end justify-end gap-4 animate-appear pt-8">
-              <Button
-                handleButtonClick={handleAbout}
-                buttonLabel={homepageData.aboutButtonLabel}
-              />
-              <div className="flex flex-col items-center justify-between">
-                <button
-                  onClick={handleAbout}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full"
-                    src={AboutButton}
-                    alt="about"
-                  />
-                </button>
-              </div>
+          <div className="flex flex-col items-center justify-center">
+            <br />
+            <div className="text-[3vw] md:text-xl text-sky-600 font-semibold h-fit flex justify-start items-center w-full">
+              <p> I am </p>
+              <FlipWords words={words} />
             </div>
-            <div className="flex items-end justify-end gap-4 animate-appear">
-              <Button
-                handleButtonClick={handleSkill}
-                buttonLabel={homepageData.skillsButtonLabel}
-              />
-              <div className="flex flex-col items-center">
-                <GradientBar />
-                <button
-                  onClick={handleSkill}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full rounded-full"
-                    src={SkillsIcon}
-                    alt="skill"
-                  />
-                </button>
+
+            <div className="flex flex-col items-end md:gap-0 pr-0 md:pr-[4vw]">
+              <div className="flex items-end justify-end gap-4 animate-appear pt-8">
+                <Button
+                  handleButtonClick={handleAbout}
+                  buttonLabel={homepageData.aboutButtonLabel}
+                />
+                <div className="flex flex-col items-center justify-between">
+                  <button
+                    onClick={handleAbout}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full"
+                      src={AboutButton}
+                      alt="about"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="flex items-end justify-end gap-4 animate-appear">
-              <Button
-                handleButtonClick={handleProject}
-                buttonLabel={homepageData.projectsButtonLabel}
-              />
-              <div className="flex flex-col items-center">
-                <GradientBar />
-                <button
-                  onClick={handleProject}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full"
-                    src={ProjectsIcon}
-                    alt="projects"
-                  />
-                </button>
+              <div className="flex items-end justify-end gap-4 animate-appear">
+                <Button
+                  handleButtonClick={handleSkill}
+                  buttonLabel={homepageData.skillsButtonLabel}
+                />
+                <div className="flex flex-col items-center">
+                  <GradientBar />
+                  <button
+                    onClick={handleSkill}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full rounded-full"
+                      src={SkillsIcon}
+                      alt="skill"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center justify-end gap-4 animate-appear">
-              <Button
-                handleButtonClick={handleContact}
-                buttonLabel={homepageData.contanctButtonLabel}
-              />
-              <div className="flex flex-col items-center">
-                <GradientBar />
-                <button
-                  onClick={handleContact}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full"
-                    src={ContactIcon}
-                    alt="contact"
-                  />
-                </button>
-                <GradientBar />
+              <div className="flex items-end justify-end gap-4 animate-appear">
+                <Button
+                  handleButtonClick={handleProject}
+                  buttonLabel={homepageData.projectsButtonLabel}
+                />
+                <div className="flex flex-col items-center">
+                  <GradientBar />
+                  <button
+                    onClick={handleProject}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full"
+                      src={ProjectsIcon}
+                      alt="projects"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-4">
-              {" "}
-              <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
-                <a href="https://github.com/marymetilda">
-                  <img className="h-full w-full" src={GithubIcon} alt="about" />
-                </a>
+              <div className="flex items-center justify-end gap-4 animate-appear">
+                <Button
+                  handleButtonClick={handleContact}
+                  buttonLabel={homepageData.contanctButtonLabel}
+                />
+                <div className="flex flex-col items-center">
+                  <GradientBar />
+                  <button
+                    onClick={handleContact}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full"
+                      src={ContactIcon}
+                      alt="contact"
+                    />
+                  </button>
+                  <GradientBar />
+                </div>
               </div>
-              <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
-                <a href="https://drive.google.com/file/d/1l5i1ToE3xU7X3W9k6YBdK9_IVTvLNRTN/view?usp=drivesdk">
-                  <img className="h-full w-full" src={ResumeIcon} alt="about" />
-                </a>
-              </div>
-              <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
-                <a href="https://www.linkedin.com/in/mary-metilda-9961aa279">
-                  <img className="h-full w-full" src={LinkedIn} alt="about" />
-                </a>
+              <div className="flex gap-4">
+                {" "}
+                <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+                  <a href="https://github.com/marymetilda">
+                    <img
+                      className="h-full w-full"
+                      src={GithubIcon}
+                      alt="about"
+                    />
+                  </a>
+                </div>
+                <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+                  <a href="https://drive.google.com/file/d/1l5i1ToE3xU7X3W9k6YBdK9_IVTvLNRTN/view?usp=drivesdk">
+                    <img
+                      className="h-full w-full"
+                      src={ResumeIcon}
+                      alt="about"
+                    />
+                  </a>
+                </div>
+                <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+                  <a href="https://www.linkedin.com/in/mary-metilda-9961aa279">
+                    <img className="h-full w-full" src={LinkedIn} alt="about" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
