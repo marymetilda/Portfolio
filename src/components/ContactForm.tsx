@@ -20,33 +20,29 @@ const ContactForm = () => {
 
   const sendEmail = (e: any) => {
     e.preventDefault();
-    if (validMessage) {
-      console.log("hello");
-
-      emailjs
-        .send(
-          "service_smtwx1b",
-          "template_t6f7uu8",
-          {
-            to_name: "Metilda",
-            name: nameRef.current ? nameRef.current.value : "",
-            email: emailRef.current ? emailRef.current.value : "",
-            subject: subjectRef.current ? subjectRef.current.value : "",
-            message: messageRef.current ? messageRef.current.value : "",
-          },
-          "wZYAcDsnHgeU_Wano"
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-            alert("SUCCESS!");
-          },
-          (error) => {
-            console.log(error.text);
-            alert("FAILED...");
-          }
-        );
-    }
+    emailjs
+      .send(
+        "service_smtwx1b",
+        "template_t6f7uu8",
+        {
+          to_name: "Metilda",
+          name: nameRef.current ? nameRef.current.value : "",
+          email: emailRef.current ? emailRef.current.value : "",
+          subject: subjectRef.current ? subjectRef.current.value : "",
+          message: messageRef.current ? messageRef.current.value : "",
+        },
+        "wZYAcDsnHgeU_Wano"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("SUCCESS!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("FAILED...");
+        }
+      );
   };
 
   return (
