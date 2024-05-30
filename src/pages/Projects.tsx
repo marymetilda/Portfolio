@@ -61,6 +61,7 @@ const Sample = () => {
       repeat: Infinity,
       repeatType: "mirror",
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
