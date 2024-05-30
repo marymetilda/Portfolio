@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
@@ -6,6 +6,11 @@ const ContactForm = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const subjectRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   const nameValue = nameRef.current ? nameRef.current.value : "";
   const emailValue = emailRef.current ? emailRef.current.value : "";
@@ -20,29 +25,47 @@ const ContactForm = () => {
 
   const sendEmail = (e: any) => {
     e.preventDefault();
+
     emailjs
       .send(
-        "service_smtwx1b",
-        "template_t6f7uu8",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID || "",
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "",
         {
           to_name: "Metilda",
-          name: nameRef.current ? nameRef.current.value : "",
-          email: emailRef.current ? emailRef.current.value : "",
-          subject: subjectRef.current ? subjectRef.current.value : "",
-          message: messageRef.current ? messageRef.current.value : "",
+          name,
+          email,
+          subject,
+          message,
         },
-        "wZYAcDsnHgeU_Wano"
+        process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
         (result) => {
           console.log(result.text);
           alert("SUCCESS!");
+          setName("");
+          setEmail("");
+          setSubject("");
+          setMessage("");
         },
         (error) => {
           console.log(error.text);
           alert("FAILED...");
         }
       );
+  };
+
+  const handleName = () => {
+    setName(nameRef.current?.value || "");
+  };
+  const handleEmail = () => {
+    setEmail(emailRef.current?.value || "");
+  };
+  const handleSubject = () => {
+    setSubject(subjectRef.current?.value || "");
+  };
+  const handleMessage = () => {
+    setMessage(messageRef.current?.value || "");
   };
 
   return (
@@ -56,6 +79,8 @@ const ContactForm = () => {
             Name
           </label>
           <input
+            value={name}
+            onChange={handleName}
             ref={nameRef}
             type="name"
             name="name"
@@ -70,6 +95,8 @@ const ContactForm = () => {
             Email
           </label>
           <input
+            value={email}
+            onChange={handleEmail}
             className="bg-black p-2 rounded-md opacity-40 text-gray-400 w-[70%]"
             ref={emailRef}
             type="email"
@@ -84,6 +111,8 @@ const ContactForm = () => {
             Subject
           </label>
           <input
+            value={subject}
+            onChange={handleSubject}
             ref={subjectRef}
             type="text"
             name="subject"
@@ -97,6 +126,8 @@ const ContactForm = () => {
             Message
           </label>
           <textarea
+            value={message}
+            onChange={handleMessage}
             ref={messageRef}
             className="bg-black p-2 rounded-md opacity-40 text-gray-400 w-[70%]"
             id="message"
