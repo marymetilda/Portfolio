@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "../utils/cn";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { useMemo, useRef } from "react";
@@ -279,6 +278,7 @@ const ShaderMaterial = ({
     });
 
     return materialObject;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size.width, size.height, source]);
 
   return (
