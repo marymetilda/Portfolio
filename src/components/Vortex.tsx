@@ -27,7 +27,7 @@ export const Vortex = (props: VortexProps) => {
   const baseTTL = 50;
   const rangeTTL = 150;
   const baseSpeed = props.baseSpeed || 0.0;
-  const rangeSpeed = props.rangeSpeed || 1.5;
+  const rangeSpeed = props.rangeSpeed || 0.0;
   const baseRadius = props.baseRadius || 1;
   const rangeRadius = props.rangeRadius || 2;
   const baseHue = props.baseHue || 220;
@@ -189,10 +189,15 @@ export const Vortex = (props: VortexProps) => {
     canvas: HTMLCanvasElement,
     ctx?: CanvasRenderingContext2D
   ) => {
-    const { innerWidth, innerHeight } = window;
+    // const { innerWidth, innerHeight } = window;
+    var myDiv = document.getElementById("myDiv");
 
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+    // Get width and height of the div
+    var width = myDiv?.offsetWidth;
+    var height = myDiv?.offsetHeight;
+
+    canvas.width = width || window.innerWidth;
+    canvas.height = height || window.innerHeight;
 
     center[0] = 0.5 * canvas.width;
     center[1] = 0.5 * canvas.height;
@@ -245,7 +250,7 @@ export const Vortex = (props: VortexProps) => {
         ref={containerRef}
         className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center"
       >
-        <canvas ref={canvasRef}></canvas>
+        <canvas style={{ borderRadius: 24 }} ref={canvasRef}></canvas>
       </motion.div>
 
       <div className={cn("relative z-10", props.className)}>

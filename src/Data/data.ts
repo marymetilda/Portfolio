@@ -31,15 +31,6 @@ export const Data = {
     projectList: [
       {
         id: 0,
-        projectUrl: "https://e-cart-g3xb.onrender.com/",
-        title: "E-Commerce Website",
-        description: "An E-Commerce Website MERN Stack",
-        liveText: "Live URL",
-        githubText: "Source code",
-        githubLink: "https://github.com/marymetilda/E-CART-",
-      },
-      {
-        id: 1,
         projectUrl: "https://yummy-tasty.netlify.app",
         title: "Yummy Tasty Food App",
         description:
@@ -47,6 +38,15 @@ export const Data = {
         liveText: "Live URL",
         githubText: "Source code",
         githubLink: "https://github.com/marymetilda/Yummy_Tasty_Food_App",
+      },
+      {
+        id: 1,
+        projectUrl: "https://e-cart-g3xb.onrender.com/",
+        title: "E-Commerce Website",
+        description: "An E-Commerce Website MERN Stack",
+        liveText: "Live URL",
+        githubText: "Source code",
+        githubLink: "https://github.com/marymetilda/E-CART-",
       },
       {
         id: 2,

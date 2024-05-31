@@ -16,13 +16,13 @@ import Intro from "../components/Intro";
 const homepageData = Data.home;
 
 const words = [
-  // "I'm Mary Metilda",
+  "I'm Mary Metilda",
   "I'm A Code Connoisseur",
   "I'm A Tech Enthusiastic",
-  // "I'm A UX Maestro",
-  // "I'm A Design Aficionado",
-  // "I'm A Pixel Perfectionist",
-  // "I'm A Perpetual Learner",
+  "I'm A UX Maestro",
+  "I'm A Design Aficionado",
+  "I'm A Pixel Perfectionist",
+  "I'm A Perpetual Learner",
 ];
 
 function Home() {
@@ -45,10 +45,18 @@ function Home() {
   };
 
   useEffect(() => {
-    // if (navigationEntry.type === "reload") {
-    //   sessionStorage.clear();
+    // const shouldHideMenu = sessionStorage.getItem("shouldHideMenu");
+    // if (navigationEntry.type === "reload" && navigationEntry !== "navigate") {
     //   setShouldShowName("");
+    //   sessionStorage.removeItem("shouldHideMenu");
+    // } else if (navigationEntry !== "navigate") {
+    //   sessionStorage.setItem("shouldHideMenu", "yes");
+    //   setShouldShowName(shouldHideMenu || "");
+    // } else {
+    //   setShouldShowName("");
+    //   sessionStorage.removeItem("shouldHideMenu");
     // }
+
     const shouldHideMenu = sessionStorage.getItem("shouldHideMenu");
     // set shouldHideMenu to the state that helps to toggle visibility of the menu
     setShouldShowName(shouldHideMenu || "");
@@ -56,13 +64,12 @@ function Home() {
     const timeout = setTimeout(() => {
       if (!shouldHideMenu) {
         sessionStorage.setItem("shouldHideMenu", "yes");
-
         setShouldShowName("yes");
       }
     }, 3000);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [navigationEntry]);
 
   const GradientBar = () => (
     <div className="relative z-10 h-12 w-4 block">
