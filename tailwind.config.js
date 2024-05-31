@@ -2,7 +2,11 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./src/app.tsx"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/app.tsx",
+    "./public/index.html",
+  ],
   theme: {
     extend: {
       backgroundImage: {
