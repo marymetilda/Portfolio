@@ -24,7 +24,7 @@ function Skills() {
         <div className="absolute top-10 w-full flex items-center justify-end pr-4 sm:pr-0 sm:justify-center z-40 opacity-50">
           <BackButton handleBackClick={handleBackClick} />
         </div>
-        <div className="w-fit h-full sm:block hidden">
+        <div className="w-fit sm:block hidden self-stretch max-h-[600px]">
           <WhiteBgCard>
             <p className="text-transparent text-center font-bold text-[25px] bg-clip-text bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-300 via-sky-300 to-indigo-300 pb-8">
               {skillData.skillList.leftCard.title}
@@ -43,7 +43,7 @@ function Skills() {
             </div>
           </WhiteBgCard>
         </div>
-        <div className="w-fit h-full sm:block hidden">
+        <div className="w-fit sm:block hidden self-stretch max-h-[600px]">
           <WhiteBgCard>
             <div className="">
               <p className="text-transparent text-center font-bold text-[25px] bg-clip-text bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-300 via-sky-300 to-indigo-300 pb-8">
@@ -102,7 +102,7 @@ function Skills() {
         </div>
       </div>
       <Particle
-        density={200}
+        density={400}
         onHoverInteractivity={false}
         shouldEnableLinks={true}
         particleColor="#ffffff"

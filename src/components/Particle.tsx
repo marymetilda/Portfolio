@@ -65,7 +65,7 @@ function Particle({
             },
             repulse: {
               distance: 75,
-              duration: 0.4,
+              duration: 1,
             },
           },
         },
@@ -75,9 +75,9 @@ function Particle({
           },
           links: {
             color: linkColor,
-            distance: 150,
+            distance: 80,
             enable: shouldEnableLinks,
-            opacity: 0.5,
+            opacity: 0.75,
             width: 1,
           },
           collisions: {
@@ -90,7 +90,7 @@ function Particle({
               default: "bounce",
             },
             random: false,
-            speed: 4,
+            speed: 1,
             straight: false,
           },
           number: {

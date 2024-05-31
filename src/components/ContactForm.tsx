@@ -72,7 +72,7 @@ const ContactForm = () => {
     <div className="w-full flex items-center justify-center py-10">
       <form
         onSubmit={sendEmail}
-        className="text-gray-400 bg-gray-800 p-8 rounded-lg opacity-60 flex flex-col items-start gap-4 animate-appear"
+        className="text-gray-400 bg-gray-700 p-8 rounded-lg opacity-60 flex flex-col items-start gap-4 animate-appear"
       >
         <div className="flex items-center justify-between w-full">
           <label htmlFor="name" className="pr-4">
@@ -84,7 +84,7 @@ const ContactForm = () => {
             ref={nameRef}
             type="name"
             name="name"
-            className="bg-black p-2 rounded-md opacity-40 text-gray-400 w-[70%]"
+            className="bg-black p-2 rounded-md opacity-40 text-white w-[70%]"
             id="name"
           />
         </div>
@@ -97,7 +97,7 @@ const ContactForm = () => {
           <input
             value={email}
             onChange={handleEmail}
-            className="bg-black p-2 rounded-md opacity-40 text-gray-400 w-[70%]"
+            className="bg-black p-2 rounded-md opacity-40 text-white w-[70%]"
             ref={emailRef}
             type="email"
             name="email"
@@ -116,7 +116,7 @@ const ContactForm = () => {
             ref={subjectRef}
             type="text"
             name="subject"
-            className="bg-black p-2 rounded-md opacity-40 text-gray-400 w-[70%]"
+            className="bg-black p-2 rounded-md opacity-40 text-white w-[70%]"
             id="subject"
           />
         </div>
@@ -129,7 +129,7 @@ const ContactForm = () => {
             value={message}
             onChange={handleMessage}
             ref={messageRef}
-            className="bg-black p-2 rounded-md opacity-40 text-gray-400 w-[70%]"
+            className="bg-black p-2 rounded-md opacity-40 text-white w-[70%]"
             id="message"
           ></textarea>
         </div>
