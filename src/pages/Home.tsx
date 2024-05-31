@@ -10,21 +10,26 @@ import GithubIcon from "../assets/github.png";
 import ResumeIcon from "../assets/resume.png";
 import LinkedIn from "../assets/linkedin.svg";
 import { FlipWords } from "../components/FlipWords";
+import { useEffect, useState } from "react";
+import Intro from "../components/Intro";
 
 const homepageData = Data.home;
 
 const words = [
-  "Mary Metilda",
-  "A Code Connoisseur",
-  "A Tech Enthusiastic",
-  "A UX Maestro",
-  "A Design Aficionado",
-  "A Pixel Perfectionist",
-  "A Perpetual Learner",
+  // "I'm Mary Metilda",
+  "I'm A Code Connoisseur",
+  "I'm A Tech Enthusiastic",
+  // "I'm A UX Maestro",
+  // "I'm A Design Aficionado",
+  // "I'm A Pixel Perfectionist",
+  // "I'm A Perpetual Learner",
 ];
 
 function Home() {
   const navigate = useNavigate();
+  const [shouldShowName, setShouldShowName] = useState("");
+  const navigationEntry: any =
+    window.performance.getEntriesByType("navigation")[0];
 
   const handleAbout = () => {
     navigate("/about");
@@ -39,6 +44,26 @@ function Home() {
     navigate("/contact");
   };
 
+  useEffect(() => {
+    // if (navigationEntry.type === "reload") {
+    //   sessionStorage.clear();
+    //   setShouldShowName("");
+    // }
+    const shouldHideMenu = sessionStorage.getItem("shouldHideMenu");
+    // set shouldHideMenu to the state that helps to toggle visibility of the menu
+    setShouldShowName(shouldHideMenu || "");
+
+    const timeout = setTimeout(() => {
+      if (!shouldHideMenu) {
+        sessionStorage.setItem("shouldHideMenu", "yes");
+
+        setShouldShowName("yes");
+      }
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   const GradientBar = () => (
     <div className="relative z-10 h-12 w-4 block">
       <div className="absolute inset-y-2 inset-x-2 bg-linear-indigo h-3/4 w-[2px] blur-md" />
@@ -49,150 +74,161 @@ function Home() {
   );
 
   return (
-    <div className="w-full h-screen bg-black flex overflow-hidden rounded-md">
-      <div className="flex flex-col items-center justify-start h-full w-full animate-appear">
-        <div className="w-[40rem] h-20 relative mt-4">
-          <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
-          <SparklesCore
-            id="particle-2"
-            background="transparent"
-            minSize={0.4}
-            maxSize={1}
-            particleDensity={1200}
-            className="w-full h-full"
-            particleColor="#FFFFFF"
-          />
-          <div className="absolute inset-x-20 bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-          <div className="absolute inset-x-20 bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-          <div className="absolute inset-x-60 bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <br />
-          <div className="text-[3vw] md:text-xl text-sky-600 font-semibold h-fit flex justify-center items-center w-full">
-            <p> I Am </p>
-            <FlipWords words={words} />
+    <div className="w-screen h-screen bg-black flex overflow-hidden">
+      {!shouldShowName ? (
+        <Intro />
+      ) : (
+        <div className="flex flex-col items-center justify-center h-full w-full animate-appear overflow-hidden pb-10">
+          <div className="w-[40rem] h-20 relative mt-4">
+            <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+            <SparklesCore
+              id="particle-2"
+              background="transparent"
+              minSize={0.4}
+              maxSize={1}
+              particleDensity={1200}
+              className="w-full h-full"
+              particleColor="#FFFFFF"
+            />
+            <div className="absolute inset-x-20 bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
           </div>
+          <div className="flex flex-col items-center justify-center">
+            <br />
+            <div className="text-[3vw] md:text-xl font-semibold h-fit flex justify-center items-center w-full">
+              <FlipWords words={words} />
+            </div>
 
-          <div className="flex flex-col items-end md:gap-0 pr-0 md:pr-[4vw]">
-            <div className="flex items-end justify-end gap-4 animate-appear pt-8">
-              <Button
-                handleButtonClick={handleAbout}
-                buttonLabel={homepageData.aboutButtonLabel}
-              />
-              <div className="flex flex-col items-center justify-between">
-                <button
-                  onClick={handleAbout}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full"
-                    src={AboutButton}
-                    alt="about"
-                  />
-                </button>
+            <div className="flex flex-col items-end md:gap-0 pr-0 md:pr-[4vw]">
+              <div className="flex items-end justify-end gap-4 animate-appear pt-8">
+                <Button
+                  handleButtonClick={handleAbout}
+                  buttonLabel={homepageData.aboutButtonLabel}
+                />
+                <div className="flex flex-col items-center justify-between">
+                  <button
+                    onClick={handleAbout}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full"
+                      src={AboutButton}
+                      alt="about"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="flex items-end justify-end gap-4 animate-appear">
-              <Button
-                handleButtonClick={handleSkill}
-                buttonLabel={homepageData.skillsButtonLabel}
-              />
-              <div className="flex flex-col items-center">
-                <GradientBar />
-                <button
-                  onClick={handleSkill}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full rounded-full"
-                    src={SkillsIcon}
-                    alt="skill"
-                  />
-                </button>
+              <div className="flex items-end justify-end gap-4 animate-appear">
+                <Button
+                  handleButtonClick={handleSkill}
+                  buttonLabel={homepageData.skillsButtonLabel}
+                />
+                <div className="flex flex-col items-center">
+                  <GradientBar />
+                  <button
+                    onClick={handleSkill}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full rounded-full"
+                      src={SkillsIcon}
+                      alt="skill"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="flex items-end justify-end gap-4 animate-appear">
-              <Button
-                handleButtonClick={handleProject}
-                buttonLabel={homepageData.projectsButtonLabel}
-              />
-              <div className="flex flex-col items-center">
-                <GradientBar />
-                <button
-                  onClick={handleProject}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full"
-                    src={ProjectsIcon}
-                    alt="projects"
-                  />
-                </button>
+              <div className="flex items-end justify-end gap-4 animate-appear">
+                <Button
+                  handleButtonClick={handleProject}
+                  buttonLabel={homepageData.projectsButtonLabel}
+                />
+                <div className="flex flex-col items-center">
+                  <GradientBar />
+                  <button
+                    onClick={handleProject}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full"
+                      src={ProjectsIcon}
+                      alt="projects"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center justify-end gap-4 animate-appear">
-              <Button
-                handleButtonClick={handleContact}
-                buttonLabel={homepageData.contanctButtonLabel}
-              />
-              <div className="flex flex-col items-center">
-                <GradientBar />
-                <button
-                  onClick={handleContact}
-                  className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
-                >
-                  <img
-                    className="h-full w-full"
-                    src={ContactIcon}
-                    alt="contact"
-                  />
-                </button>
-                <GradientBar />
+              <div className="flex items-center justify-end gap-4 animate-appear">
+                <Button
+                  handleButtonClick={handleContact}
+                  buttonLabel={homepageData.contanctButtonLabel}
+                />
+                <div className="flex flex-col items-center">
+                  <GradientBar />
+                  <button
+                    onClick={handleContact}
+                    className="w-8 h-8 p-1 bg-linear-blue rounded-full flex items-center justify-center"
+                  >
+                    <img
+                      className="h-full w-full"
+                      src={ContactIcon}
+                      alt="contact"
+                    />
+                  </button>
+                  <GradientBar />
+                </div>
               </div>
-            </div>
-            <div className="flex gap-4">
-              {" "}
-              <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
-                <a href="https://github.com/marymetilda">
-                  <img className="h-full w-full" src={GithubIcon} alt="about" />
-                </a>
-              </div>
-              <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
-                <a href="https://drive.google.com/file/d/1l5i1ToE3xU7X3W9k6YBdK9_IVTvLNRTN/view?usp=drivesdk">
-                  <img className="h-full w-full" src={ResumeIcon} alt="about" />
-                </a>
-              </div>
-              <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
-                <a href="https://www.linkedin.com/in/mary-metilda-9961aa279">
-                  <img className="h-full w-full" src={LinkedIn} alt="about" />
-                </a>
+              <div className="flex gap-4">
+                {" "}
+                <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+                  <a href="https://github.com/marymetilda">
+                    <img
+                      className="h-full w-full"
+                      src={GithubIcon}
+                      alt="about"
+                    />
+                  </a>
+                </div>
+                <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+                  <a href="https://drive.google.com/file/d/1l5i1ToE3xU7X3W9k6YBdK9_IVTvLNRTN/view?usp=drivesdk">
+                    <img
+                      className="h-full w-full"
+                      src={ResumeIcon}
+                      alt="about"
+                    />
+                  </a>
+                </div>
+                <div className="w-8 h-8 hover:scale-150 hover:cursor-pointer p-1 bg-linear-blue rounded-full flex items-center justify-center">
+                  <a href="https://www.linkedin.com/in/mary-metilda-9961aa279">
+                    <img className="h-full w-full" src={LinkedIn} alt="about" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-[40rem] h-20 relative mt-4">
-          {/* Gradients */}
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          <div className="w-[40rem] h-20 relative mt-4">
+            {/* Gradients */}
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
-          {/* Core component */}
-          <SparklesCore
-            id="particle-3"
-            background="transparent"
-            minSize={0.4}
-            maxSize={1}
-            particleDensity={1200}
-            className="w-full h-full"
-            particleColor="#FFFFFF"
-          />
+            {/* Core component */}
+            <SparklesCore
+              id="particle-3"
+              background="transparent"
+              minSize={0.4}
+              maxSize={1}
+              particleDensity={1200}
+              className="w-full h-full"
+              particleColor="#FFFFFF"
+            />
 
-          {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+            {/* Radial Gradient to prevent sharp edges */}
+            <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

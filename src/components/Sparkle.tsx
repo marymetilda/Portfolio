@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { Container, SingleOrMultiple } from "@tsparticles/engine";
+import type { SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "../utils/cn";
 import { motion, useAnimation } from "framer-motion";
@@ -39,16 +39,15 @@ export const SparklesCore = (props: ParticlesProps) => {
   }, []);
   const controls = useAnimation();
 
-  const particlesLoaded = async (container?: Container) => {
-    if (container) {
-      controls.start({
-        opacity: 1,
-        transition: {
-          duration: 1,
-        },
-      });
-    }
-  };
+  useEffect(() => {
+    controls.start({
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>
@@ -56,7 +55,6 @@ export const SparklesCore = (props: ParticlesProps) => {
         <Particles
           id={id || "tsparticles"}
           className={cn("h-full w-full")}
-          particlesLoaded={particlesLoaded}
           options={{
             background: {
               color: {

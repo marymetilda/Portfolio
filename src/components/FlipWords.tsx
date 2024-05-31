@@ -55,7 +55,6 @@ export const FlipWords = ({
           y: -40,
           x: 40,
           filter: "blur(8px)",
-          scale: 2,
           position: "absolute",
         }}
         className={cn(
@@ -74,7 +73,6 @@ export const FlipWords = ({
                 delay: index * 0.08,
                 duration: 0.4,
               }}
-              className=""
             >
               {letter}
             </motion.span>
